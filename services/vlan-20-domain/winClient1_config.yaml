@@ -1,14 +1,14 @@
 cores: 2
 disks:
-- name: ide0
-  size: 771138K
+- name: ide2
+  size: 5261680K
   storage: local
+- name: scsihw
 - name: virtio0
   size: 64G
   storage: DIR02
-- name: scsihw
-- name: ide2
-  size: 5261680K
+- name: ide0
+  size: 771138K
   storage: local
 memory_mb: '4096'
 name: winClient1

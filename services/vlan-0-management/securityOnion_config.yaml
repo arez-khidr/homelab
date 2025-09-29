@@ -1,22 +1,22 @@
 cores: 4
 disks:
-- name: ide2
-  size: 13690M
-  storage: local
+- name: scsihw
 - name: scsi0
   size: 300G
   storage: LVM-SSD
-- name: scsihw
+- name: ide2
+  size: 13690M
+  storage: local
 memory_mb: '16384'
 name: securityOnion
 network_interfaces:
-- bridge: vmbr4
-  interface: net1
-- bridge: vmbr5
-  interface: net2
 - bridge: vmbr2
   firewall: '1'
   interface: net0
+- bridge: vmbr5
+  interface: net2
+- bridge: vmbr4
+  interface: net1
 node: pve
 sockets: 1
 vmid: 208

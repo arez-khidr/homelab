@@ -1,12 +1,12 @@
 cores: 4
 disks:
 - name: scsihw
-- name: scsi0
-  size: 32G
-  storage: LVM-SSD
 - name: ide2
   size: 966536K
   storage: local
+- name: scsi0
+  size: 32G
+  storage: LVM-SSD
 memory_mb: '2048'
 name: pfFirewall
 network_interfaces:

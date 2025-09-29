@@ -138,9 +138,6 @@ def generate_vm_inventory(proxmox: ProxmoxAPI, nodename, directory):
         directory - Where the outputted YAML file should be written
     """
 
-    if not nodename:
-        raise ValueError("Node name was not passed in")
-
     try:
         vms = proxmox.cluster.resources.get(type="vm")
         if not vms:

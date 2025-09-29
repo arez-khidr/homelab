@@ -1,10 +1,10 @@
 cores: 4
 disks:
-- name: ide0
-- name: scsihw
 - name: virtio0
   size: 50G
   storage: LVM-SSD
+- name: scsihw
+- name: ide0
 - name: ide2
 memory_mb: '4096'
 name: AdServer
