@@ -3,13 +3,13 @@ disks:
 - name: ide2
   size: 5261680K
   storage: local
-- name: scsihw
-- name: virtio0
-  size: 64G
-  storage: DIR02
 - name: ide0
   size: 771138K
   storage: local
+- name: virtio0
+  size: 64G
+  storage: DIR02
+- name: scsihw
 memory_mb: '4096'
 name: winClient1
 network_interfaces:

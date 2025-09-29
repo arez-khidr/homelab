@@ -1,12 +1,12 @@
 cores: 4
 disks:
 - name: scsihw
-- name: scsi0
-  size: 300G
-  storage: LVM-SSD
 - name: ide2
   size: 13690M
   storage: local
+- name: scsi0
+  size: 300G
+  storage: LVM-SSD
 memory_mb: '16384'
 name: securityOnion
 network_interfaces:

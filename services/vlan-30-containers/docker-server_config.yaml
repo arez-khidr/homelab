@@ -1,10 +1,10 @@
 cores: 2
 disks:
+- name: scsihw
 - name: scsi0
   size: 160G
   storage: LVM-SSD
 - name: ide2
-- name: scsihw
 memory_mb: '9536'
 name: docker-server
 network_interfaces:

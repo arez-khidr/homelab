@@ -1,10 +1,10 @@
 cores: 1
 disks:
-- name: scsihw
 - name: ide2
 - name: ide0
   size: 32G
-  storage: file=local
+  storage: local
+- name: scsihw
 memory_mb: '2048'
 name: metasploitable
 network_interfaces:

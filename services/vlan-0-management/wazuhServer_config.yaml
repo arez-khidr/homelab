@@ -1,10 +1,10 @@
 cores: 4
 disks:
 - name: scsihw
-- name: ide2
 - name: scsi0
   size: 160G
   storage: DIR02
+- name: ide2
 memory_mb: '8192'
 name: wazuhServer
 network_interfaces:

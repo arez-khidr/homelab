@@ -1,10 +1,10 @@
 cores: 2
 disks:
-- name: scsihw
 - name: scsi0
   size: 50G
   storage: LVM-SSD
 - name: ide2
+- name: scsihw
 memory_mb: '8096'
 name: caldera
 network_interfaces:

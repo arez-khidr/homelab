@@ -1,0 +1,78 @@
+generated_at: '2025-09-29T13:48:09.531999'
+node: pve
+storage_allocations:
+  DIR02:
+    total_gb: 7392.19
+    used_gb: 142.34
+    available_gb: 6877.23
+    allocated_to_vms_gb: 224
+    vms:
+    - vm_name: wazuhServer
+      vmid: 205
+      allocated_gb: 160
+    - vm_name: winClient1
+      vmid: 213
+      allocated_gb: 64
+  LVM-SSD:
+    total_gb: 912.76
+    used_gb: 152.71
+    available_gb: 760.06
+    allocated_to_vms_gb: 752
+    vms:
+    - vm_name: pfFirewall
+      vmid: 201
+      allocated_gb: 32
+    - vm_name: kaliMachine
+      vmid: 202
+      allocated_gb: 80
+    - vm_name: docker-server
+      vmid: 203
+      allocated_gb: 160
+    - vm_name: nessusMachine
+      vmid: 206
+      allocated_gb: 40
+    - vm_name: caldera
+      vmid: 207
+      allocated_gb: 50
+    - vm_name: securityOnion
+      vmid: 208
+      allocated_gb: 300
+    - vm_name: ubuntuAgent
+      vmid: 210
+      allocated_gb: 40
+    - vm_name: AdServer
+      vmid: 211
+      allocated_gb: 50
+  local:
+    total_gb: 67.73
+    used_gb: 47.05
+    available_gb: 17.19
+    allocated_to_vms_gb: 45.37
+    vms:
+    - vm_name: pfFirewall
+      vmid: 201
+      allocated_gb: 0
+    - vm_name: kaliMachine
+      vmid: 202
+      allocated_gb: 0
+    - vm_name: metasploitable
+      vmid: 204
+      allocated_gb: 32
+    - vm_name: securityOnion
+      vmid: 208
+      allocated_gb: 13.37
+    - vm_name: winClient1
+      vmid: 213
+      allocated_gb: 0
+  DIR03:
+    total_gb: 7392.19
+    used_gb: 0.0
+    available_gb: 7019.57
+    allocated_to_vms_gb: 0
+    vms: []
+  local-lvm:
+    total_gb: 141.23
+    used_gb: 0.0
+    available_gb: 141.23
+    allocated_to_vms_gb: 0
+    vms: []

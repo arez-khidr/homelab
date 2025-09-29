@@ -55,7 +55,7 @@ def extract_creation_data(config):
 
 
 def extract_disk_info(config):
-    """Extract basic disk information from VM config"""
+    """Extract basic disk information from VM config - handles different storage types"""
     disks = []
     for key, value in config.items():
         if key.startswith(("scsi", "sata", "ide", "virtio")) and key != "virtio":
@@ -63,7 +63,15 @@ def extract_disk_info(config):
 
             parts = str(value).split(",")
             storage_info = parts[0]
-            if ":" in storage_info:
+
+            if "file=" in storage_info:
+                # Format: file=storage_name:disk_name
+                file_part = storage_info.split("file=")[1]
+                if ":" in file_part:
+                    storage = file_part.split(":", 1)[0]
+                    disk_info["storage"] = storage
+            elif ":" in storage_info:
+                # Format: storage_name:disk_name (LVM, ZFS, etc.)
                 storage = storage_info.split(":", 1)[0]
                 disk_info["storage"] = storage
 

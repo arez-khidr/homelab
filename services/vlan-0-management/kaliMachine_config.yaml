@@ -1,12 +1,12 @@
 cores: 4
 disks:
+- name: scsihw
 - name: ide2
   size: 4335408K
   storage: local
 - name: scsi0
   size: 80G
   storage: LVM-SSD
-- name: scsihw
 memory_mb: '8192'
 name: kaliMachine
 network_interfaces:

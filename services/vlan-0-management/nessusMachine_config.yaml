@@ -1,10 +1,10 @@
 cores: 4
 disks:
-- name: scsihw
+- name: ide2
 - name: scsi0
   size: 40G
   storage: LVM-SSD
-- name: ide2
+- name: scsihw
 memory_mb: '4096'
 name: nessusMachine
 network_interfaces:
