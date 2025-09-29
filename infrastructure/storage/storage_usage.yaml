@@ -1,40 +1,29 @@
-generated_at: '2025-09-29T13:48:09.398363'
+generated_at: '2025-09-29T17:08:16.420381'
 node: pve
 storage_details:
-- name: LVM-SSD
-  type: lvmthin
-  enabled: true
-  content:
-  - rootdir
-  - images
-  total_gb: 912.76
-  used_gb: 152.71
-  available_gb: 760.06
-  usage_percent: 16.73
-- name: DIR02
+- name: local
   type: dir
   enabled: true
   content:
-  - images
-  - snippets
-  - vztmpl
-  - rootdir
-  - backup
   - iso
-  total_gb: 7392.19
-  used_gb: 142.34
-  available_gb: 6877.23
-  usage_percent: 1.93
+  - backup
+  - vztmpl
+  - snippets
+  - images
+  total_gb: 67.73
+  used_gb: 47.05
+  available_gb: 17.19
+  usage_percent: 69.47
 - name: DIR03
   type: dir
   enabled: true
   content:
+  - backup
+  - iso
+  - rootdir
   - vztmpl
   - snippets
   - images
-  - iso
-  - backup
-  - rootdir
   total_gb: 7392.19
   used_gb: 0.0
   available_gb: 7019.57
@@ -43,22 +32,33 @@ storage_details:
   type: lvmthin
   enabled: true
   content:
-  - rootdir
   - images
+  - rootdir
   total_gb: 141.23
   used_gb: 0.0
   available_gb: 141.23
   usage_percent: 0.0
-- name: local
+- name: DIR02
   type: dir
   enabled: true
   content:
+  - rootdir
   - iso
   - backup
-  - snippets
   - images
+  - snippets
   - vztmpl
-  total_gb: 67.73
-  used_gb: 47.05
-  available_gb: 17.19
-  usage_percent: 69.47
+  total_gb: 7392.19
+  used_gb: 142.34
+  available_gb: 6877.23
+  usage_percent: 1.93
+- name: LVM-SSD
+  type: lvmthin
+  enabled: true
+  content:
+  - images
+  - rootdir
+  total_gb: 912.76
+  used_gb: 152.71
+  available_gb: 760.06
+  usage_percent: 16.73

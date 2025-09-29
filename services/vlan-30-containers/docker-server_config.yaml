@@ -1,17 +1,17 @@
+vmid: 203
+name: docker-server
+memory_mb: '9536'
 cores: 2
+sockets: 2
+network_interfaces:
+- interface: net0
+  bridge: vmbr2
+  firewall: '1'
+  vlan: '30'
 disks:
 - name: scsihw
-- name: scsi0
-  size: 160G
-  storage: LVM-SSD
 - name: ide2
-memory_mb: '9536'
-name: docker-server
-network_interfaces:
-- bridge: vmbr2
-  firewall: '1'
-  interface: net0
-  vlan: '30'
+- name: scsi0
+  storage: LVM-SSD
+  size: 160G
 node: pve
-sockets: 2
-vmid: 203

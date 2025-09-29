@@ -1,21 +1,21 @@
-cores: 4
-disks:
-- name: scsi0
-  size: 32G
-  storage: LVM-SSD
-- name: ide2
-  size: 966536K
-  storage: local
-- name: scsihw
-memory_mb: '2048'
-name: pfFirewall
-network_interfaces:
-- bridge: vmbr2
-  firewall: '1'
-  interface: net1
-- bridge: vmbr0
-  firewall: '1'
-  interface: net0
-node: pve
-sockets: 1
 vmid: 201
+name: pfFirewall
+memory_mb: '2048'
+cores: 4
+sockets: 1
+network_interfaces:
+- interface: net0
+  bridge: vmbr0
+  firewall: '1'
+- interface: net1
+  bridge: vmbr2
+  firewall: '1'
+disks:
+- name: scsihw
+- name: scsi0
+  storage: LVM-SSD
+  size: 32G
+- name: ide2
+  storage: local
+  size: 966536K
+node: pve

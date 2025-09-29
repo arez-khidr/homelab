@@ -1,5 +1,5 @@
 import os
-import yaml
+import oyaml as yaml
 from datetime import datetime
 from proxmoxer import ProxmoxAPI
 from dotenv import load_dotenv
@@ -55,7 +55,7 @@ def extract_creation_data(config):
 
 
 def extract_disk_info(config):
-    """Extract basic disk information from VM config - handles different storage types"""
+    """Extract basic disk information from VM config"""
     disks = []
     for key, value in config.items():
         if key.startswith(("scsi", "sata", "ide", "virtio")) and key != "virtio":
@@ -97,6 +97,7 @@ def write_yaml_inventory(vm_inventory, directory):
             f,
             default_flow_style=False,
             indent=2,
+            sort_keys=False,
         )
 
     print(f"VM inventory written to {output_file}")
@@ -124,14 +125,17 @@ def generate_vlan_specific_inventory(vm_data, vlan_tag):
         )
         return
 
-    directory = f"../../services/{vlan_dir}"
+    # Get project root and set path to services directory
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    directory = os.path.join(project_root, "services", vlan_dir)
+
     os.makedirs(directory, exist_ok=True)
 
     vm_name = vm_data["name"].replace(" ", "_").replace("/", "_")
     output_file = os.path.join(directory, f"{vm_name}_config.yaml")
 
     with open(output_file, "w") as f:
-        yaml.dump(vm_data, f, default_flow_style=False, indent=2)
+        yaml.dump(vm_data, f, default_flow_style=False, sort_keys=False, indent=2)
 
     print(f"VM {vm_data['name']} written to {output_file}")
 
@@ -202,8 +206,12 @@ def main():
         print(f"Error access proxmox server {e}")
         return
 
+    # Get project root and set path to infrastructure/compute directory
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    compute_dir = os.path.join(project_root, "infrastructure", "compute")
+
     generate_vm_inventory(
-        proxmox, os.getenv("PROXMOX_NODE"), "../../infrastructure/compute"
+        proxmox, os.getenv("PROXMOX_NODE"), compute_dir
     )
 
 

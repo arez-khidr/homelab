@@ -1,202 +1,202 @@
-generated_at: '2025-09-29T13:48:20.166294'
 vms:
-- cores: 4
-  disks:
-  - name: scsi0
-    size: 32G
-    storage: LVM-SSD
-  - name: ide2
-    size: 966536K
-    storage: local
-  - name: scsihw
-  memory_mb: '2048'
+- vmid: 201
   name: pfFirewall
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net1
-  - bridge: vmbr0
-    firewall: '1'
-    interface: net0
-  node: pve
-  sockets: 1
-  vmid: 201
-- cores: 4
-  disks:
-  - name: scsihw
-  - name: ide2
-    size: 4335408K
-    storage: local
-  - name: scsi0
-    size: 80G
-    storage: LVM-SSD
-  memory_mb: '8192'
-  name: kaliMachine
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net0
-  node: pve
-  sockets: 1
-  vmid: 202
-- cores: 2
-  disks:
-  - name: scsihw
-  - name: scsi0
-    size: 160G
-    storage: LVM-SSD
-  - name: ide2
-  memory_mb: '9536'
-  name: docker-server
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net0
-    vlan: '30'
-  node: pve
-  sockets: 2
-  vmid: 203
-- cores: 1
-  disks:
-  - name: ide2
-  - name: ide0
-    size: 32G
-    storage: local
-  - name: scsihw
   memory_mb: '2048'
-  name: metasploitable
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net0
-    vlan: '10'
-  node: pve
+  cores: 4
   sockets: 1
-  vmid: 204
-- cores: 4
+  network_interfaces:
+  - interface: net0
+    bridge: vmbr0
+    firewall: '1'
+  - interface: net1
+    bridge: vmbr2
+    firewall: '1'
   disks:
   - name: scsihw
   - name: scsi0
-    size: 160G
-    storage: DIR02
+    storage: LVM-SSD
+    size: 32G
   - name: ide2
+    storage: local
+    size: 966536K
+  node: pve
+- vmid: 202
+  name: kaliMachine
   memory_mb: '8192'
-  name: wazuhServer
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net0
-  node: pve
+  cores: 4
   sockets: 1
-  vmid: 205
-- cores: 4
+  network_interfaces:
+  - interface: net0
+    bridge: vmbr2
+    firewall: '1'
   disks:
   - name: ide2
-  - name: scsi0
-    size: 40G
-    storage: LVM-SSD
-  - name: scsihw
-  memory_mb: '4096'
-  name: nessusMachine
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net0
-  node: pve
-  sockets: 1
-  vmid: 206
-- cores: 2
-  disks:
-  - name: scsi0
-    size: 50G
-    storage: LVM-SSD
-  - name: ide2
-  - name: scsihw
-  memory_mb: '8096'
-  name: caldera
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net0
-  node: pve
-  sockets: 1
-  vmid: 207
-- cores: 4
-  disks:
-  - name: scsihw
-  - name: ide2
-    size: 13690M
     storage: local
+    size: 4335408K
   - name: scsi0
-    size: 300G
     storage: LVM-SSD
-  memory_mb: '16384'
-  name: securityOnion
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net0
-  - bridge: vmbr5
-    interface: net2
-  - bridge: vmbr4
-    interface: net1
-  node: pve
-  sockets: 1
-  vmid: 208
-- cores: 2
-  disks:
-  - name: scsi0
-    size: 40G
-    storage: LVM-SSD
-  - name: ide2
+    size: 80G
   - name: scsihw
-  memory_mb: '4086'
-  name: ubuntuAgent
+  node: pve
+- vmid: 203
+  name: docker-server
+  memory_mb: '9536'
+  cores: 2
+  sockets: 2
   network_interfaces:
-  - bridge: vmbr2
+  - interface: net0
+    bridge: vmbr2
     firewall: '1'
-    interface: net0
     vlan: '30'
-  node: pve
-  sockets: 1
-  vmid: 210
-- cores: 4
   disks:
   - name: scsihw
-  - name: virtio0
-    size: 50G
+  - name: ide2
+  - name: scsi0
     storage: LVM-SSD
-  - name: ide0
-  - name: ide2
-  memory_mb: '4096'
-  name: AdServer
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net0
-    vlan: '20'
+    size: 160G
   node: pve
+- vmid: 204
+  name: metasploitable
+  memory_mb: '2048'
+  cores: 1
   sockets: 1
-  vmid: 211
-- cores: 2
+  network_interfaces:
+  - interface: net0
+    bridge: vmbr2
+    firewall: '1'
+    vlan: '10'
   disks:
   - name: ide2
-    size: 5261680K
-    storage: local
   - name: ide0
-    size: 771138K
     storage: local
-  - name: virtio0
-    size: 64G
-    storage: DIR02
+    size: 32G
   - name: scsihw
-  memory_mb: '4096'
-  name: winClient1
-  network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net0
-    vlan: '20'
   node: pve
+- vmid: 205
+  name: wazuhServer
+  memory_mb: '8192'
+  cores: 4
   sockets: 1
-  vmid: 213
+  network_interfaces:
+  - interface: net0
+    bridge: vmbr2
+    firewall: '1'
+  disks:
+  - name: scsihw
+  - name: scsi0
+    storage: DIR02
+    size: 160G
+  - name: ide2
+  node: pve
+- vmid: 206
+  name: nessusMachine
+  memory_mb: '4096'
+  cores: 4
+  sockets: 1
+  network_interfaces:
+  - interface: net0
+    bridge: vmbr2
+    firewall: '1'
+  disks:
+  - name: scsihw
+  - name: ide2
+  - name: scsi0
+    storage: LVM-SSD
+    size: 40G
+  node: pve
+- vmid: 207
+  name: caldera
+  memory_mb: '8096'
+  cores: 2
+  sockets: 1
+  network_interfaces:
+  - interface: net0
+    bridge: vmbr2
+    firewall: '1'
+  disks:
+  - name: ide2
+  - name: scsi0
+    storage: LVM-SSD
+    size: 50G
+  - name: scsihw
+  node: pve
+- vmid: 208
+  name: securityOnion
+  memory_mb: '16384'
+  cores: 4
+  sockets: 1
+  network_interfaces:
+  - interface: net2
+    bridge: vmbr5
+  - interface: net1
+    bridge: vmbr4
+  - interface: net0
+    bridge: vmbr2
+    firewall: '1'
+  disks:
+  - name: scsi0
+    storage: LVM-SSD
+    size: 300G
+  - name: ide2
+    storage: local
+    size: 13690M
+  - name: scsihw
+  node: pve
+- vmid: 210
+  name: ubuntuAgent
+  memory_mb: '4086'
+  cores: 2
+  sockets: 1
+  network_interfaces:
+  - interface: net0
+    bridge: vmbr2
+    firewall: '1'
+    vlan: '30'
+  disks:
+  - name: scsihw
+  - name: ide2
+  - name: scsi0
+    storage: LVM-SSD
+    size: 40G
+  node: pve
+- vmid: 211
+  name: AdServer
+  memory_mb: '4096'
+  cores: 4
+  sockets: 1
+  network_interfaces:
+  - interface: net0
+    bridge: vmbr2
+    firewall: '1'
+    vlan: '20'
+  disks:
+  - name: virtio0
+    storage: LVM-SSD
+    size: 50G
+  - name: scsihw
+  - name: ide0
+  - name: ide2
+  node: pve
+- vmid: 213
+  name: winClient1
+  memory_mb: '4096'
+  cores: 2
+  sockets: 1
+  network_interfaces:
+  - interface: net0
+    bridge: vmbr2
+    firewall: '1'
+    vlan: '20'
+  disks:
+  - name: ide0
+    storage: local
+    size: 771138K
+  - name: virtio0
+    storage: DIR02
+    size: 64G
+  - name: scsihw
+  - name: ide2
+    storage: local
+    size: 5261680K
+  node: pve
+generated_at: '2025-09-29T17:01:34.977328'

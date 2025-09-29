@@ -206,11 +206,15 @@ def main():
         print(f"Error access proxmox server {e}")
         return
 
+    # Get project root and set path to infrastructure/storage directory
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    storage_dir = os.path.join(project_root, "infrastructure", "storage")
+
     generate_disk_usage(
-        proxmox, os.getenv("PROXMOX_NODE"), "../../infrastructure/storage"
+        proxmox, os.getenv("PROXMOX_NODE"), storage_dir
     )
     vm_disk_allocation(
-        proxmox, os.getenv("PROXMOX_NODE"), "../../infrastructure/storage"
+        proxmox, os.getenv("PROXMOX_NODE"), storage_dir
     )
 
 

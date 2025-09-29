@@ -1,17 +1,17 @@
+vmid: 204
+name: metasploitable
+memory_mb: '2048'
 cores: 1
+sockets: 1
+network_interfaces:
+- interface: net0
+  bridge: vmbr2
+  firewall: '1'
+  vlan: '10'
 disks:
 - name: ide2
 - name: ide0
-  size: 32G
   storage: local
+  size: 32G
 - name: scsihw
-memory_mb: '2048'
-name: metasploitable
-network_interfaces:
-- bridge: vmbr2
-  firewall: '1'
-  interface: net0
-  vlan: '10'
 node: pve
-sockets: 1
-vmid: 204
