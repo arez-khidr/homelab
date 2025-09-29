@@ -1,0 +1,22 @@
+cores: 2
+disks:
+- name: ide0
+  size: 771138K
+  storage: local
+- name: virtio0
+  size: 64G
+  storage: DIR02
+- name: scsihw
+- name: ide2
+  size: 5261680K
+  storage: local
+memory_mb: '4096'
+name: winClient1
+network_interfaces:
+- bridge: vmbr2
+  firewall: '1'
+  interface: net0
+  vlan: '20'
+node: pve
+sockets: 1
+vmid: 213

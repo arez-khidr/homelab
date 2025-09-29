@@ -1,0 +1,16 @@
+cores: 2
+disks:
+- name: ide2
+- name: scsi0
+  size: 50G
+  storage: LVM-SSD
+- name: scsihw
+memory_mb: '8096'
+name: caldera
+network_interfaces:
+- bridge: vmbr2
+  firewall: '1'
+  interface: net0
+node: pve
+sockets: 1
+vmid: 207

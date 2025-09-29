@@ -1,0 +1,17 @@
+cores: 2
+disks:
+- name: scsihw
+- name: ide2
+- name: scsi0
+  size: 40G
+  storage: LVM-SSD
+memory_mb: '4086'
+name: ubuntuAgent
+network_interfaces:
+- bridge: vmbr2
+  firewall: '1'
+  interface: net0
+  vlan: '30'
+node: pve
+sockets: 1
+vmid: 210

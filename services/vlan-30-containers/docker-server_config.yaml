@@ -1,0 +1,17 @@
+cores: 2
+disks:
+- name: scsihw
+- name: ide2
+- name: scsi0
+  size: 160G
+  storage: LVM-SSD
+memory_mb: '9536'
+name: docker-server
+network_interfaces:
+- bridge: vmbr2
+  firewall: '1'
+  interface: net0
+  vlan: '30'
+node: pve
+sockets: 2
+vmid: 203

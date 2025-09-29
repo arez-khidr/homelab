@@ -1,0 +1,17 @@
+cores: 1
+disks:
+- name: scsihw
+- name: ide0
+  size: 32G
+  storage: file=local
+- name: ide2
+memory_mb: '2048'
+name: metasploitable
+network_interfaces:
+- bridge: vmbr2
+  firewall: '1'
+  interface: net0
+  vlan: '10'
+node: pve
+sockets: 1
+vmid: 204

@@ -1,0 +1,16 @@
+cores: 4
+disks:
+- name: scsi0
+  size: 40G
+  storage: LVM-SSD
+- name: ide2
+- name: scsihw
+memory_mb: '4096'
+name: nessusMachine
+network_interfaces:
+- bridge: vmbr2
+  firewall: '1'
+  interface: net0
+node: pve
+sockets: 1
+vmid: 206

@@ -1,0 +1,16 @@
+cores: 4
+disks:
+- name: scsihw
+- name: ide2
+- name: scsi0
+  size: 160G
+  storage: DIR02
+memory_mb: '8192'
+name: wazuhServer
+network_interfaces:
+- bridge: vmbr2
+  firewall: '1'
+  interface: net0
+node: pve
+sockets: 1
+vmid: 205

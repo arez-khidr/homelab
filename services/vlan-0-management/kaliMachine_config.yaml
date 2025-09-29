@@ -1,0 +1,18 @@
+cores: 4
+disks:
+- name: scsihw
+- name: scsi0
+  size: 80G
+  storage: LVM-SSD
+- name: ide2
+  size: 4335408K
+  storage: local
+memory_mb: '8192'
+name: kaliMachine
+network_interfaces:
+- bridge: vmbr2
+  firewall: '1'
+  interface: net0
+node: pve
+sockets: 1
+vmid: 202

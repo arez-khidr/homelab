@@ -1,35 +1,35 @@
-generated_at: '2025-09-29T09:16:07.020550'
+generated_at: '2025-09-29T09:55:03.245205'
 vms:
 - cores: 4
   disks:
-  - name: ide2
-    size: 966536K
-    storage: local
+  - name: scsihw
   - name: scsi0
     size: 32G
     storage: LVM-SSD
-  - name: scsihw
+  - name: ide2
+    size: 966536K
+    storage: local
   memory_mb: '2048'
   name: pfFirewall
   network_interfaces:
-  - bridge: vmbr2
-    firewall: '1'
-    interface: net1
   - bridge: vmbr0
     firewall: '1'
     interface: net0
+  - bridge: vmbr2
+    firewall: '1'
+    interface: net1
   node: pve
   sockets: 1
   vmid: 201
 - cores: 4
   disks:
+  - name: scsihw
   - name: scsi0
     size: 80G
     storage: LVM-SSD
   - name: ide2
     size: 4335408K
     storage: local
-  - name: scsihw
   memory_mb: '8192'
   name: kaliMachine
   network_interfaces:
@@ -41,11 +41,11 @@ vms:
   vmid: 202
 - cores: 2
   disks:
+  - name: scsihw
+  - name: ide2
   - name: scsi0
     size: 160G
     storage: LVM-SSD
-  - name: ide2
-  - name: scsihw
   memory_mb: '9536'
   name: docker-server
   network_interfaces:
@@ -91,11 +91,11 @@ vms:
   vmid: 205
 - cores: 4
   disks:
-  - name: scsihw
   - name: scsi0
     size: 40G
     storage: LVM-SSD
   - name: ide2
+  - name: scsihw
   memory_mb: '4096'
   name: nessusMachine
   network_interfaces:
@@ -107,10 +107,10 @@ vms:
   vmid: 206
 - cores: 2
   disks:
+  - name: ide2
   - name: scsi0
     size: 50G
     storage: LVM-SSD
-  - name: ide2
   - name: scsihw
   memory_mb: '8096'
   name: caldera
@@ -123,33 +123,33 @@ vms:
   vmid: 207
 - cores: 4
   disks:
-  - name: scsihw
-  - name: scsi0
-    size: 300G
-    storage: LVM-SSD
   - name: ide2
     size: 13690M
     storage: local
+  - name: scsi0
+    size: 300G
+    storage: LVM-SSD
+  - name: scsihw
   memory_mb: '16384'
   name: securityOnion
   network_interfaces:
+  - bridge: vmbr4
+    interface: net1
+  - bridge: vmbr5
+    interface: net2
   - bridge: vmbr2
     firewall: '1'
     interface: net0
-  - bridge: vmbr5
-    interface: net2
-  - bridge: vmbr4
-    interface: net1
   node: pve
   sockets: 1
   vmid: 208
 - cores: 2
   disks:
+  - name: scsihw
+  - name: ide2
   - name: scsi0
     size: 40G
     storage: LVM-SSD
-  - name: ide2
-  - name: scsihw
   memory_mb: '4086'
   name: ubuntuAgent
   network_interfaces:
@@ -180,15 +180,15 @@ vms:
   vmid: 211
 - cores: 2
   disks:
-  - name: ide2
-    size: 5261680K
+  - name: ide0
+    size: 771138K
     storage: local
-  - name: scsihw
   - name: virtio0
     size: 64G
     storage: DIR02
-  - name: ide0
-    size: 771138K
+  - name: scsihw
+  - name: ide2
+    size: 5261680K
     storage: local
   memory_mb: '4096'
   name: winClient1

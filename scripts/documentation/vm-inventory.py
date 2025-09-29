@@ -7,6 +7,14 @@ import requests
 # Using the Proxmoxer API. This script should be called and ran whenever a new vm is added.
 # Automatically adds and removes VMs that have been changed
 
+# VLAN to directory mapping
+VLAN_MAPPING = {
+    "10": "vlan-10-vuln",
+    "20": "vlan-20-domain",
+    "30": "vlan-30-containers",
+    "default": "vlan-0-management",
+}
+
 
 def extract_network_info(config):
     """Extract networking information from VM config"""
@@ -86,6 +94,40 @@ def write_yaml_inventory(vm_inventory, directory):
     print(f"VM inventory written to {output_file}")
 
 
+def extract_vm_vlan(network_interfaces):
+    """Extract VLAN tag from VM network interfaces"""
+    vlan_tag = "default"  # Default VLAN
+    if network_interfaces:
+        for interface in network_interfaces:
+            if "vlan" in interface:
+                vlan_tag = interface["vlan"]
+                break  # Use first VLAN found
+    return vlan_tag
+
+
+def generate_vlan_specific_inventory(vm_data, vlan_tag):
+    """Writes the config file for a vm to a specific directory corresponding to its vlan"""
+    # Map VLAN tag to directory name
+    try:
+        vlan_dir = VLAN_MAPPING[vlan_tag]
+    except Exception as e:
+        print(
+            f"Issue for VLAN mapping, VLAN may need to be added to the VLAN_MAPPINNG dict{e}"
+        )
+        return
+
+    directory = f"../../services/{vlan_dir}"
+    os.makedirs(directory, exist_ok=True)
+
+    vm_name = vm_data["name"].replace(" ", "_").replace("/", "_")
+    output_file = os.path.join(directory, f"{vm_name}_config.yaml")
+
+    with open(output_file, "w") as f:
+        yaml.dump(vm_data, f, default_flow_style=False, indent=2)
+
+    print(f"VM {vm_data['name']} written to {output_file}")
+
+
 def generate_vm_inventory(proxmox: ProxmoxAPI, nodename, directory):
     """
     Gets VM information to display inventory
@@ -116,7 +158,6 @@ def generate_vm_inventory(proxmox: ProxmoxAPI, nodename, directory):
             if not config:
                 print(f"VM Config for {vmid} not obtained")
                 continue
-            # Extract networking and disk information using helper functions
             network_interfaces = extract_network_info(config)
             disks = extract_disk_info(config)
 
@@ -133,7 +174,10 @@ def generate_vm_inventory(proxmox: ProxmoxAPI, nodename, directory):
 
             vm_inventory.append(vm_data)
 
-        # Write to YAML file
+            # Generate VLAN specific file for config
+            vlan_tag = extract_vm_vlan(network_interfaces)
+            generate_vlan_specific_inventory(vm_data, vlan_tag)
+
         write_yaml_inventory(vm_inventory, directory)
 
     except Exception as e:

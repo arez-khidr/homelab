@@ -1,0 +1,18 @@
+cores: 4
+disks:
+- name: ide0
+- name: scsihw
+- name: virtio0
+  size: 50G
+  storage: LVM-SSD
+- name: ide2
+memory_mb: '4096'
+name: AdServer
+network_interfaces:
+- bridge: vmbr2
+  firewall: '1'
+  interface: net0
+  vlan: '20'
+node: pve
+sockets: 1
+vmid: 211
