@@ -1,39 +1,6 @@
-generated_at: '2025-09-29T17:08:16.551704'
+generated_at: '2025-09-30T07:41:37.638093'
 node: pve
 storage_allocations:
-  local-lvm:
-    total_gb: 141.23
-    used_gb: 0.0
-    available_gb: 141.23
-    allocated_to_vms_gb: 0
-    vms: []
-  DIR03:
-    total_gb: 7392.19
-    used_gb: 0.0
-    available_gb: 7019.57
-    allocated_to_vms_gb: 0
-    vms: []
-  local:
-    total_gb: 67.73
-    used_gb: 47.05
-    available_gb: 17.19
-    allocated_to_vms_gb: 45.37
-    vms:
-    - vm_name: pfFirewall
-      vmid: 201
-      allocated_gb: 0
-    - vm_name: kaliMachine
-      vmid: 202
-      allocated_gb: 0
-    - vm_name: metasploitable
-      vmid: 204
-      allocated_gb: 32
-    - vm_name: securityOnion
-      vmid: 208
-      allocated_gb: 13.37
-    - vm_name: winClient1
-      vmid: 213
-      allocated_gb: 0
   LVM-SSD:
     total_gb: 912.76
     used_gb: 152.71
@@ -64,6 +31,39 @@ storage_allocations:
     - vm_name: AdServer
       vmid: 211
       allocated_gb: 50
+  local-lvm:
+    total_gb: 141.23
+    used_gb: 0.0
+    available_gb: 141.23
+    allocated_to_vms_gb: 0
+    vms: []
+  DIR03:
+    total_gb: 7392.19
+    used_gb: 0.0
+    available_gb: 7019.57
+    allocated_to_vms_gb: 0
+    vms: []
+  local:
+    total_gb: 67.73
+    used_gb: 47.06
+    available_gb: 17.19
+    allocated_to_vms_gb: 45.37
+    vms:
+    - vm_name: pfFirewall
+      vmid: 201
+      allocated_gb: 0
+    - vm_name: kaliMachine
+      vmid: 202
+      allocated_gb: 0
+    - vm_name: metasploitable
+      vmid: 204
+      allocated_gb: 32
+    - vm_name: securityOnion
+      vmid: 208
+      allocated_gb: 13.37
+    - vm_name: winClient1
+      vmid: 213
+      allocated_gb: 0
   DIR02:
     total_gb: 7392.19
     used_gb: 142.34

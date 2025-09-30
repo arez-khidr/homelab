@@ -1,0 +1,38 @@
+generated_at: '2025-09-30T07:41:37.659789'
+node: pve
+ram_allocations:
+  total_allocated_gb: 69.21
+  vms:
+  - vm_name: pfFirewall
+    vmid: 201
+    allocated_gb: 2.0
+  - vm_name: kaliMachine
+    vmid: 202
+    allocated_gb: 8.0
+  - vm_name: docker-server
+    vmid: 203
+    allocated_gb: 9.31
+  - vm_name: metasploitable
+    vmid: 204
+    allocated_gb: 2.0
+  - vm_name: wazuhServer
+    vmid: 205
+    allocated_gb: 8.0
+  - vm_name: nessusMachine
+    vmid: 206
+    allocated_gb: 4.0
+  - vm_name: caldera
+    vmid: 207
+    allocated_gb: 7.91
+  - vm_name: securityOnion
+    vmid: 208
+    allocated_gb: 16.0
+  - vm_name: ubuntuAgent
+    vmid: 210
+    allocated_gb: 3.99
+  - vm_name: AdServer
+    vmid: 211
+    allocated_gb: 4.0
+  - vm_name: winClient1
+    vmid: 213
+    allocated_gb: 4.0

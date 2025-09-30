@@ -1,13 +1,10 @@
 import os
+import traceback
 import yaml
 from datetime import datetime
 from proxmoxer import ProxmoxAPI
 from dotenv import load_dotenv
 import requests
-
-
-def ram_usage():
-    """Shows how much RAM is being expended divided by VM"""
 
 
 def extract_disk_info(config):
@@ -92,6 +89,68 @@ def process_vm_allocations(proxmox, nodename, storage_allocations):
                     )
 
                 storage_allocations[storage_name]["allocated_to_vms_gb"] += allocated_gb
+
+
+def vm_ram_allocation(proxmox: ProxmoxAPI, nodename, directory):
+    """Shows the RAM allocation across all VMs"""
+    try:
+        vms = proxmox.cluster.resources.get(type="vm")
+        if not vms:
+            raise ValueError("No VMs were obtained")
+
+        ram_allocations = {"total_allocated_gb": 0, "vms": []}
+
+        for vm in vms:
+            if vm["template"] == 1:
+                continue
+
+            vmid = vm["vmid"]
+            vm_name = vm["name"]
+            config = proxmox.nodes(nodename).qemu(vmid).config.get()
+
+            if not config:
+                print(f"VM Config for {vmid} not obtained")
+                continue
+
+            allocated_ram_mb = config["memory"]
+            allocated_ram_gb = round(float(allocated_ram_mb) / 1024, 2)
+
+            vm_ram_data = {
+                "vm_name": vm_name,
+                "vmid": vmid,
+                "allocated_gb": allocated_ram_gb,
+            }
+
+            ram_allocations["vms"].append(vm_ram_data)
+            ram_allocations["total_allocated_gb"] += allocated_ram_gb
+
+        ram_allocations["total_allocated_gb"] = round(
+            ram_allocations["total_allocated_gb"], 2
+        )
+
+        ram_report = {
+            "generated_at": datetime.now().isoformat(),
+            "node": nodename,
+            "ram_allocations": ram_allocations,
+        }
+
+        os.makedirs(directory, exist_ok=True)
+        output_file = os.path.join(directory, "vm_ram_allocations.yaml")
+
+        with open(output_file, "w") as f:
+            yaml.dump(
+                ram_report,
+                f,
+                default_flow_style=False,
+                sort_keys=False,
+                indent=2,
+            )
+
+        print(f"VM RAM allocation report written to {output_file}")
+
+    except Exception as e:
+        print(f"Error generating VM RAM allocation report: {e}")
+        traceback.print_exc()
 
 
 def vm_disk_allocation(proxmox: ProxmoxAPI, nodename, directory):
@@ -209,13 +268,11 @@ def main():
     # Get project root and set path to infrastructure/storage directory
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     storage_dir = os.path.join(project_root, "infrastructure", "storage")
+    compute_dir = os.path.join(project_root, "infrastructure", "compute")
 
-    generate_disk_usage(
-        proxmox, os.getenv("PROXMOX_NODE"), storage_dir
-    )
-    vm_disk_allocation(
-        proxmox, os.getenv("PROXMOX_NODE"), storage_dir
-    )
+    generate_disk_usage(proxmox, os.getenv("PROXMOX_NODE"), storage_dir)
+    vm_disk_allocation(proxmox, os.getenv("PROXMOX_NODE"), storage_dir)
+    vm_ram_allocation(proxmox, os.getenv("PROXMOX_NODE"), compute_dir)
 
 
 if __name__ == "__main__":

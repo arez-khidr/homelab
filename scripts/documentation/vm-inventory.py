@@ -210,9 +210,7 @@ def main():
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     compute_dir = os.path.join(project_root, "infrastructure", "compute")
 
-    generate_vm_inventory(
-        proxmox, os.getenv("PROXMOX_NODE"), compute_dir
-    )
+    generate_vm_inventory(proxmox, os.getenv("PROXMOX_NODE"), compute_dir)
 
 
 if __name__ == "__main__":
