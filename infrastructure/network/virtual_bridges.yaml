@@ -1,0 +1,47 @@
+generated_at: '2025-10-01T08:06:18.315785'
+proxmox_node: pve
+virtual_bridges:
+  vmbr5:
+    name: vmbr5
+    type: OVSBridge
+    priority: 6
+    active: true
+    cidr: null
+    bridge_ports: ''
+    comments: Network TAP for vmbr0 for so
+    autostart: true
+    method: manual
+    gateway: null
+  vmbr4:
+    name: vmbr4
+    type: bridge
+    priority: 7
+    active: true
+    cidr: null
+    bridge_ports: ''
+    comments: Network TAP for vmbr2
+    autostart: true
+    method: manual
+    gateway: null
+  vmbr0:
+    name: vmbr0
+    type: bridge
+    priority: 4
+    active: true
+    cidr: 192.168.1.103/24
+    bridge_ports: eno1
+    comments: null
+    autostart: true
+    method: static
+    gateway: 192.168.1.1
+  vmbr2:
+    name: vmbr2
+    type: bridge
+    priority: 5
+    active: true
+    cidr: 10.10.1.0/24
+    bridge_ports: ''
+    comments: LAB LAN
+    autostart: true
+    method: static
+    gateway: null

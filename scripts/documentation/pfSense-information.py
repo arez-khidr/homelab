@@ -1,7 +1,6 @@
 # Uses the pfsense API to get information from the firewall
 
 import requests
-from requests.auth import HTTPBasicAuth
 import os
 from dotenv import load_dotenv
 import yaml

@@ -1,4 +1,4 @@
-generated_at: '2025-09-30T22:01:35.172003'
+generated_at: '2025-10-01T07:49:03.229235'
 pfsense_host: 10.10.1.254
 network_configuration:
   wan:
@@ -13,6 +13,7 @@ network_configuration:
       gateway: ''
       block_private_networks: true
       block_bogon_networks: true
+      is_vlan: false
     dhcp_config:
       enabled: false
       range_from: null
@@ -31,6 +32,7 @@ network_configuration:
       gateway: ''
       block_private_networks: false
       block_bogon_networks: false
+      is_vlan: false
     dhcp_config:
       enabled: true
       range_from: 10.10.1.50
@@ -56,6 +58,7 @@ network_configuration:
       gateway: null
       block_private_networks: false
       block_bogon_networks: false
+      is_vlan: false
     dhcp_config:
       enabled: true
       range_from: 10.10.10.50
@@ -81,6 +84,7 @@ network_configuration:
       gateway: null
       block_private_networks: false
       block_bogon_networks: false
+      is_vlan: false
     dhcp_config:
       enabled: false
       range_from: 10.10.20.50
@@ -106,6 +110,7 @@ network_configuration:
       gateway: null
       block_private_networks: false
       block_bogon_networks: false
+      is_vlan: false
     dhcp_config:
       enabled: true
       range_from: 10.10.30.50
