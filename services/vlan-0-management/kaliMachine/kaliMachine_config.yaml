@@ -1,17 +1,18 @@
-vmid: 203
-name: docker-server
-memory_mb: '9536'
-cores: 2
-sockets: 2
+vmid: 202
+name: kaliMachine
+memory_mb: '8192'
+cores: 4
+sockets: 1
 network_interfaces:
 - interface: net0
   bridge: vmbr2
   firewall: '1'
-  vlan: '30'
 disks:
-- name: scsihw
 - name: ide2
+  storage: local
+  size: 4335408K
+- name: scsihw
 - name: scsi0
   storage: LVM-SSD
-  size: 160G
+  size: 80G
 node: pve

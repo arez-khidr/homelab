@@ -1,17 +1,18 @@
-vmid: 210
-name: ubuntuAgent
-memory_mb: '4086'
-cores: 2
+vmid: 211
+name: AdServer
+memory_mb: '4096'
+cores: 4
 sockets: 1
 network_interfaces:
 - interface: net0
   bridge: vmbr2
   firewall: '1'
-  vlan: '30'
+  vlan: '20'
 disks:
-- name: scsihw
 - name: ide2
-- name: scsi0
+- name: virtio0
   storage: LVM-SSD
-  size: 40G
+  size: 50G
+- name: ide0
+- name: scsihw
 node: pve

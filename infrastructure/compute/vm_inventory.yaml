@@ -12,13 +12,13 @@ vms:
     bridge: vmbr2
     firewall: '1'
   disks:
-  - name: scsihw
-  - name: scsi0
-    storage: LVM-SSD
-    size: 32G
   - name: ide2
     storage: local
     size: 966536K
+  - name: scsi0
+    storage: LVM-SSD
+    size: 32G
+  - name: scsihw
   node: pve
 - vmid: 202
   name: kaliMachine
@@ -33,10 +33,10 @@ vms:
   - name: ide2
     storage: local
     size: 4335408K
+  - name: scsihw
   - name: scsi0
     storage: LVM-SSD
     size: 80G
-  - name: scsihw
   node: pve
 - vmid: 203
   name: docker-server
@@ -49,11 +49,11 @@ vms:
     firewall: '1'
     vlan: '30'
   disks:
-  - name: scsihw
-  - name: ide2
   - name: scsi0
     storage: LVM-SSD
     size: 160G
+  - name: scsihw
+  - name: ide2
   node: pve
 - vmid: 204
   name: metasploitable
@@ -66,11 +66,11 @@ vms:
     firewall: '1'
     vlan: '10'
   disks:
-  - name: ide2
+  - name: scsihw
   - name: ide0
     storage: local
     size: 32G
-  - name: scsihw
+  - name: ide2
   node: pve
 - vmid: 205
   name: wazuhServer
@@ -82,10 +82,10 @@ vms:
     bridge: vmbr2
     firewall: '1'
   disks:
-  - name: scsihw
   - name: scsi0
     storage: DIR02
     size: 160G
+  - name: scsihw
   - name: ide2
   node: pve
 - vmid: 206
@@ -98,11 +98,11 @@ vms:
     bridge: vmbr2
     firewall: '1'
   disks:
-  - name: scsihw
   - name: ide2
   - name: scsi0
     storage: LVM-SSD
     size: 40G
+  - name: scsihw
   node: pve
 - vmid: 207
   name: caldera
@@ -126,21 +126,21 @@ vms:
   cores: 4
   sockets: 1
   network_interfaces:
-  - interface: net2
-    bridge: vmbr5
   - interface: net1
     bridge: vmbr4
+  - interface: net2
+    bridge: vmbr5
   - interface: net0
     bridge: vmbr2
     firewall: '1'
   disks:
+  - name: scsihw
   - name: scsi0
     storage: LVM-SSD
     size: 300G
   - name: ide2
     storage: local
     size: 13690M
-  - name: scsihw
   node: pve
 - vmid: 210
   name: ubuntuAgent
@@ -153,11 +153,11 @@ vms:
     firewall: '1'
     vlan: '30'
   disks:
-  - name: scsihw
-  - name: ide2
   - name: scsi0
     storage: LVM-SSD
     size: 40G
+  - name: scsihw
+  - name: ide2
   node: pve
 - vmid: 211
   name: AdServer
@@ -170,12 +170,12 @@ vms:
     firewall: '1'
     vlan: '20'
   disks:
+  - name: ide2
   - name: virtio0
     storage: LVM-SSD
     size: 50G
-  - name: scsihw
   - name: ide0
-  - name: ide2
+  - name: scsihw
   node: pve
 - vmid: 213
   name: winClient1
@@ -191,12 +191,12 @@ vms:
   - name: ide0
     storage: local
     size: 771138K
+  - name: scsihw
   - name: virtio0
     storage: DIR02
     size: 64G
-  - name: scsihw
   - name: ide2
     storage: local
     size: 5261680K
   node: pve
-generated_at: '2025-09-29T17:01:34.977328'
+generated_at: '2025-10-01T08:16:04.447281'

@@ -11,11 +11,11 @@ network_interfaces:
   bridge: vmbr2
   firewall: '1'
 disks:
-- name: scsihw
-- name: scsi0
-  storage: LVM-SSD
-  size: 32G
 - name: ide2
   storage: local
   size: 966536K
+- name: scsi0
+  storage: LVM-SSD
+  size: 32G
+- name: scsihw
 node: pve

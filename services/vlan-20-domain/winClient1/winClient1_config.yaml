@@ -12,10 +12,10 @@ disks:
 - name: ide0
   storage: local
   size: 771138K
+- name: scsihw
 - name: virtio0
   storage: DIR02
   size: 64G
-- name: scsihw
 - name: ide2
   storage: local
   size: 5261680K

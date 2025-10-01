@@ -1,6 +1,6 @@
-vmid: 206
-name: nessusMachine
-memory_mb: '4096'
+vmid: 205
+name: wazuhServer
+memory_mb: '8192'
 cores: 4
 sockets: 1
 network_interfaces:
@@ -8,9 +8,9 @@ network_interfaces:
   bridge: vmbr2
   firewall: '1'
 disks:
+- name: scsi0
+  storage: DIR02
+  size: 160G
 - name: scsihw
 - name: ide2
-- name: scsi0
-  storage: LVM-SSD
-  size: 40G
 node: pve

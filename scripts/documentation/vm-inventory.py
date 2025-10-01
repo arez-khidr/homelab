@@ -127,12 +127,14 @@ def generate_vlan_specific_inventory(vm_data, vlan_tag):
 
     # Get project root and set path to services directory
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-    directory = os.path.join(project_root, "services", vlan_dir)
-
-    os.makedirs(directory, exist_ok=True)
+    vlan_directory = os.path.join(project_root, "services", vlan_dir)
 
     vm_name = vm_data["name"].replace(" ", "_").replace("/", "_")
-    output_file = os.path.join(directory, f"{vm_name}_config.yaml")
+    vm_directory = os.path.join(vlan_directory, vm_name)
+
+    os.makedirs(vm_directory, exist_ok=True)
+
+    output_file = os.path.join(vm_directory, f"{vm_name}_config.yaml")
 
     with open(output_file, "w") as f:
         yaml.dump(vm_data, f, default_flow_style=False, sort_keys=False, indent=2)

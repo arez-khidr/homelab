@@ -1,16 +1,17 @@
-vmid: 205
-name: wazuhServer
-memory_mb: '8192'
-cores: 4
+vmid: 210
+name: ubuntuAgent
+memory_mb: '4086'
+cores: 2
 sockets: 1
 network_interfaces:
 - interface: net0
   bridge: vmbr2
   firewall: '1'
+  vlan: '30'
 disks:
-- name: scsihw
 - name: scsi0
-  storage: DIR02
-  size: 160G
+  storage: LVM-SSD
+  size: 40G
+- name: scsihw
 - name: ide2
 node: pve

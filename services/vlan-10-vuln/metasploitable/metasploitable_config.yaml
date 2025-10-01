@@ -9,9 +9,9 @@ network_interfaces:
   firewall: '1'
   vlan: '10'
 disks:
-- name: ide2
+- name: scsihw
 - name: ide0
   storage: local
   size: 32G
-- name: scsihw
+- name: ide2
 node: pve
