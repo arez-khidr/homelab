@@ -1,0 +1,121 @@
+generated_at: '2025-09-30T22:01:35.172003'
+pfsense_host: 10.10.1.254
+network_configuration:
+  wan:
+    interface_info:
+      id: wan
+      description: WAN
+      ipv4_address: dhcp
+      subnet: null
+      physical_interface: vtnet0
+      enabled: true
+      ipv4_type: dhcp
+      gateway: ''
+      block_private_networks: true
+      block_bogon_networks: true
+    dhcp_config:
+      enabled: false
+      range_from: null
+      range_to: null
+      dns_servers: []
+      gateway: null
+  lan:
+    interface_info:
+      id: lan
+      description: LAN
+      ipv4_address: 10.10.1.254
+      subnet: 24
+      physical_interface: vtnet1
+      enabled: true
+      ipv4_type: static
+      gateway: ''
+      block_private_networks: false
+      block_bogon_networks: false
+    dhcp_config:
+      enabled: true
+      range_from: 10.10.1.50
+      range_to: 10.10.1.100
+      dns_servers:
+      - 10.10.1.254
+      - 8.8.8.8
+      gateway: ''
+      domain: ''
+      default_lease_time: null
+      max_lease_time: null
+      static_arp: false
+      deny_unknown: null
+  opt1:
+    interface_info:
+      id: opt1
+      description: VLAN10
+      ipv4_address: 10.10.10.254
+      subnet: 24
+      physical_interface: vtnet1.10
+      enabled: true
+      ipv4_type: static
+      gateway: null
+      block_private_networks: false
+      block_bogon_networks: false
+    dhcp_config:
+      enabled: true
+      range_from: 10.10.10.50
+      range_to: 10.10.10.100
+      dns_servers:
+      - 10.10.10.254
+      - 8.8.8.8
+      gateway: ''
+      domain: ''
+      default_lease_time: null
+      max_lease_time: null
+      static_arp: false
+      deny_unknown: null
+  opt2:
+    interface_info:
+      id: opt2
+      description: VLAN20
+      ipv4_address: 10.10.20.254
+      subnet: 24
+      physical_interface: vtnet1.20
+      enabled: true
+      ipv4_type: static
+      gateway: null
+      block_private_networks: false
+      block_bogon_networks: false
+    dhcp_config:
+      enabled: false
+      range_from: 10.10.20.50
+      range_to: 10.10.20.100
+      dns_servers:
+      - 10.10.10.254
+      - 8.8.8.8
+      gateway: ''
+      domain: ''
+      default_lease_time: null
+      max_lease_time: null
+      static_arp: false
+      deny_unknown: null
+  opt3:
+    interface_info:
+      id: opt3
+      description: VLAN30
+      ipv4_address: 10.10.30.254
+      subnet: 24
+      physical_interface: vtnet1.30
+      enabled: true
+      ipv4_type: static
+      gateway: null
+      block_private_networks: false
+      block_bogon_networks: false
+    dhcp_config:
+      enabled: true
+      range_from: 10.10.30.50
+      range_to: 10.10.30.100
+      dns_servers:
+      - 10.10.30.254
+      - 8.8.8.8
+      gateway: ''
+      domain: ''
+      default_lease_time: null
+      max_lease_time: null
+      static_arp: false
+      deny_unknown: null
