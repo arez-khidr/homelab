@@ -110,8 +110,8 @@ try {
   $gpo2 = New-GPO -Name "Server Hardening Policy" -Comment "Hardening settings for servers" -ErrorAction Stop
   New-GPLink -Name "Server Hardening Policy" -Target "OU=Servers,$domainDN" -LinkEnabled Yes -ErrorAction Stop
 } catch {
-  Write-Host "Error creating GPO Server Hardening Policy"}
-} 
+  Write-Host "Error creating GPO Server Hardening Policy"
+}
 
 
 
